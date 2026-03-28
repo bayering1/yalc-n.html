@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Beni Ne Kadar Tanıyorsun?</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Beni Ne Kadar Tanıyorsun? 😎</h1>
+
+<form id="quiz">
+
+    <p>1. favori animem?</p>
+    <input type="radio" name="q1" value="a"> gachiakuta<br>
+    <input type="radio" name="q1" value="b"> attack on titan<br>
+    <input type="radio" name="q1" value="c"> jujutsu kaisen<br>
+
+    <p>2. favori youtuberım?</p>
+    <input type="radio" name="q2" value="a"> enis kirazoğlu<br>
+    <input type="radio" name="q2" value="b"> enes batur<br>
+    <input type="radio" name="q2" value="c"> baldiback<br>
+
+    <p>3. favori rengim??</p>
+    <input type="radio" name="q3" value="a"> turuncu<br>
+    <input type="radio" name="q3" value="b"> turkuaz<br>
+    <input type="radio" name="q3" value="c"> Siyah<br>
+
+    <p>4. nereliyim</p>
+    <input type="radio" name="q4" value="a"> sivas<br>
+    <input type="radio" name="q4" value="b"> kayseri<br>
+    <input type="radio" name="q4" value="c"> sinop<br>
+
+    <p>5. 2 yıl gittiğim spor?</p>
+    <input type="radio" name="q5" value="a"> futbol<br>
+    <input type="radio" name="q5" value="b"> karete<br>
+    <input type="radio" name="q5" value="c"> kick box<br>
+
+    <br><br>
+    <button type="button" onclick="sonucuHesapla()">Sonucu Göster</button>
+
+</form>
+
+<h2 id="sonuc"></h2>
+
+</div>
+
+<script>
+function sonucuHesapla() {
+    let puan = 0;
+
+    let q1 = document.querySelector('input[name="q1"]:checked');
+    let q2 = document.querySelector('input[name="q2"]:checked');
+    let q3 = document.querySelector('input[name="q3"]:checked');
+    let q4 = document.querySelector('input[name="q4"]:checked');
+    let q5 = document.querySelector('input[name="q5"]:checked');
+
+    if (!q1 || !q2 || !q3 || !q4 || !q5) {
+        alert("Tüm soruları cevapla!");
+        return;
+    }
+
+    // DOĞRU CEVAPLAR (kendine göre değiştir)
+    if (q1.value === "b") puan++;
+    if (q2.value === "c") puan++;
+    if (q3.value === "a") puan++;
+    if (q4.value === "a") puan++;
+    if (q5.value === "b") puan++;
+
+    document.getElementById("sonuc").innerText = "Sonuç: " + puan + "/5";
+}
+</script>
+
+</body>
+</html>
